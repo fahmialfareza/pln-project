@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
+});
+
+Auth::routes();
+
+Route::middleware(['user'])->group(function () {
+    Route::get('/dashboard', 'HomeController@index')->name('home');
+    Route::resource('/data', DataController::class)->names('data');
+    Route::get('/data/{data}/print', 'DataController@print')->name('data.print');
+    Route::get('/change-password', 'ChangePasswordController@index')->name('settings.changepassword');
+    Route::post('/change-password', 'ChangePasswordController@store')->name('settings.changepassword');
 });
