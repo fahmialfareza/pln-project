@@ -15,8 +15,7 @@
         "jeroennoten/laravel-adminlte": "^3.5",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^3.0",
-        "niklasravnsborg/laravel-pdf": "^4.0"
+        "laravel/ui": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
