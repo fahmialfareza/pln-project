@@ -21,8 +21,10 @@ Auth::routes();
 
 Route::middleware(['user'])->group(function () {
     Route::get('/dashboard', 'HomeController@index')->name('home');
-    Route::resource('/data', DataController::class)->names('data');
-    Route::get('/data/{data}/print', 'DataController@print')->name('data.print');
+    Route::resource('/data/trafo', DataTrafoController::class)->names('data.trafo');
+    Route::get('/data/trafo/{trafo}/print', 'DataTrafoController@print')->name('data.trafo.print');
+    Route::resource('/data/penghantar', DataPenghantarController::class)->names('data.penghantar');
+    Route::get('/data/penghantar/{penghantar}/print', 'DataPenghantarController@print')->name('data.penghantar.print');
     Route::get('/change-password', 'ChangePasswordController@index')->name('settings.changepassword');
     Route::post('/change-password', 'ChangePasswordController@store')->name('settings.changepassword');
 });

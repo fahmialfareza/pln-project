@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Data;
+use App\Models\DataTrafo;
+use App\Models\DataPenghantar;
 
 class User extends Authenticatable
 {
@@ -44,7 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function data() {
-        return $this->hasMany(Data::class);
+    public function dataTrafo() {
+        return $this->hasMany(DataTrafo::class);
+    }
+
+    public function dataPenghantar() {
+        return $this->hasMany(DataPenghantar::class);
     }
 }

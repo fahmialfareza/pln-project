@@ -247,16 +247,30 @@ return [
             'icon'        => 'fas fa-fw fa-home',
         ],
         [
-            'text'    => 'Data',
+            'text'    => 'Data Trafo',
             'icon'    => 'fas fa-fw fa-database',
             'submenu' => [
                 [
                     'text' => 'Tambah Data',
-                    'url'  => 'data/create',
+                    'url'  => 'data/trafo/create',
                 ],
                 [
                     'text' => 'Lihat Data',
-                    'url'  => 'data',
+                    'url'  => 'data/trafo',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Data Penghantar',
+            'icon'    => 'fas fa-fw fa-database',
+            'submenu' => [
+                [
+                    'text' => 'Tambah Data',
+                    'url'  => 'data/penghantar/create',
+                ],
+                [
+                    'text' => 'Lihat Data',
+                    'url'  => 'data/penghantar',
                 ],
             ],
         ],

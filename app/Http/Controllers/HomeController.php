@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
-use App\Models\Data;
+use App\Models\DataTrafo;
+use App\Models\DataPenghantar;
 
 class HomeController extends Controller
 {
@@ -17,13 +18,19 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->admin == 0) {
-            $data = User::find(Auth::user()->id)->data->count();
+            $dataTrafo = User::find(Auth::user()->id)->dataTrafo->count();
         } else {
-            $data = Data::count();
+            $dataTrafo = DataTrafo::count();
+        }
+
+        if (Auth::user()->admin == 0) {
+            $dataPenghantar = User::find(Auth::user()->id)->dataPenghantar->count();
+        } else {
+            $dataPenghantar = DataPenghantar::count();
         }
 
         $users = User::count();
 
-        return view('home', compact('data', 'users'));
+        return view('home', compact('dataTrafo', 'dataPenghantar', 'users'));
     }
 }

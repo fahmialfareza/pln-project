@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Tambah Data')
+@section('title', 'Tambah Data (Trafo)')
 
 @section('content_header')
-<h1>Tambah Data</h1>
+<h1>Tambah Data (Trafo)</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
-        <form role="form" method="POST" action="{{ route('data.store') }}">
+        <form role="form" method="POST" action="{{ route('data.trafo.store') }}">
             @csrf
             <div class="row">
                 <div class="col-md-12">
@@ -83,7 +83,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" onchange="change()" id="akmk_fasa_r_arus_nominal" value="{{ old('akmk_fasa_r_arus_nominal') }}" name="akmk_fasa_r_arus_nominal" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" onchange="change()" id="akmk_fasa_r_arus_nominal" value="{{ old('akmk_fasa_r_arus_nominal') }}" name="akmk_fasa_r_arus_nominal" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" onchange="change()" id="akmk_fasa_s_arus_nominal" value="{{ old('akmk_fasa_s_arus_nominal') }}" name="akmk_fasa_s_arus_nominal" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" onchange="change()" id="akmk_fasa_s_arus_nominal" value="{{ old('akmk_fasa_s_arus_nominal') }}" name="akmk_fasa_s_arus_nominal" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -99,15 +99,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" onchange="change()" id="akmk_fasa_t_arus_nominal" value="{{ old('akmk_fasa_t_arus_nominal') }}" name="akmk_fasa_t_arus_nominal" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" onchange="change()" id="akmk_fasa_t_arus_nominal" value="{{ old('akmk_fasa_t_arus_nominal') }}" name="akmk_fasa_t_arus_nominal" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" onchange="change()" id="akmk_fasa_gfr_arus_nominal" value="{{ old('akmk_fasa_gfr_arus_nominal') }}" name="akmk_fasa_gfr_arus_nominal" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" onchange="change()" id="akmk_fasa_gfr_arus_nominal" value="{{ old('akmk_fasa_gfr_arus_nominal') }}" name="akmk_fasa_gfr_arus_nominal" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_r_setting" onchange="change()" value="{{ old('akmk_fasa_r_setting') }}" name="akmk_fasa_r_setting" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_r_setting" onchange="change()" value="{{ old('akmk_fasa_r_setting') }}" name="akmk_fasa_r_setting" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_s_setting" onchange="change()" value="{{ old('akmk_fasa_s_setting') }}" name="akmk_fasa_s_setting" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_s_setting" onchange="change()" value="{{ old('akmk_fasa_s_setting') }}" name="akmk_fasa_s_setting" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -136,15 +136,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_t_setting" onchange="change()" value="{{ old('akmk_fasa_t_setting') }}" name="akmk_fasa_t_setting" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_t_setting" onchange="change()" value="{{ old('akmk_fasa_t_setting') }}" name="akmk_fasa_t_setting" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_gfr_setting" onchange="change()" value="{{ old('akmk_fasa_gfr_setting') }}" name="akmk_fasa_gfr_setting" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_gfr_setting" onchange="change()" value="{{ old('akmk_fasa_gfr_setting') }}" name="akmk_fasa_gfr_setting" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_r_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_r_arus_kerja') }}" name="akmk_fasa_r_arus_kerja" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_r_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_r_arus_kerja') }}" name="akmk_fasa_r_arus_kerja" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_s_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_s_arus_kerja') }}" name="akmk_fasa_s_arus_kerja" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_s_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_s_arus_kerja') }}" name="akmk_fasa_s_arus_kerja" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -173,15 +173,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_t_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_t_arus_kerja') }}" name="akmk_fasa_t_arus_kerja" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_t_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_t_arus_kerja') }}" name="akmk_fasa_t_arus_kerja" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_gfr_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_gfr_arus_kerja') }}" name="akmk_fasa_gfr_arus_kerja" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_gfr_arus_kerja" onchange="change()" value="{{ old('akmk_fasa_gfr_arus_kerja') }}" name="akmk_fasa_gfr_arus_kerja" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_r_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_r_arus_kembali') }}" name="akmk_fasa_r_arus_kembali" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_r_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_r_arus_kembali') }}" name="akmk_fasa_r_arus_kembali" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_s_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_s_arus_kembali') }}" name="akmk_fasa_s_arus_kembali" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_s_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_s_arus_kembali') }}" name="akmk_fasa_s_arus_kembali" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -210,15 +210,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_t_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_t_arus_kembali') }}" name="akmk_fasa_t_arus_kembali" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_t_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_t_arus_kembali') }}" name="akmk_fasa_t_arus_kembali" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="akmk_fasa_gfr_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_gfr_arus_kembali') }}" name="akmk_fasa_gfr_arus_kembali" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_gfr_arus_kembali" onchange="change()" value="{{ old('akmk_fasa_gfr_arus_kembali') }}" name="akmk_fasa_gfr_arus_kembali" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" value="{{ old('akmk_fasa_r_ratio') }}" name="akmk_fasa_r_ratio" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_r_ratio" readonly value="{{ old('akmk_fasa_r_ratio') }}" name="akmk_fasa_r_ratio" placeholder="Fasa R ...">
                                         %
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" value="{{ old('akmk_fasa_s_ratio') }}" name="akmk_fasa_s_ratio" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_s_ratio" readonly value="{{ old('akmk_fasa_s_ratio') }}" name="akmk_fasa_s_ratio" placeholder="Fasa S ...">
                                         %
                                     </div>
                                 </div>
@@ -247,15 +247,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" value="{{ old('akmk_fasa_t_ratio') }}" name="akmk_fasa_t_ratio" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_t_ratio" readonly value="{{ old('akmk_fasa_t_ratio') }}" name="akmk_fasa_t_ratio" placeholder="Fasa T ...">
                                         %
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" value="{{ old('akmk_fasa_gfr_ratio') }}" name="akmk_fasa_gfr_ratio" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="akmk_fasa_gfr_ratio" readonly value="{{ old('akmk_fasa_gfr_ratio') }}" name="akmk_fasa_gfr_ratio" placeholder="GFR ...">
                                         %
                                     </div>
                                 </div>
@@ -272,20 +272,32 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>tms OCR</label>
-                                        <input type="number" class="form-control" id="kw_tms_ocr" onchange="change()" value="{{ old('kw_tms_ocr') }}" name="kw_tms_ocr" placeholder="tms OCR ...">
-                                        SI
+                                        <input type="number" step="0.0001" class="form-control" id="kw_tms_ocr" onchange="change()" value="{{ old('kw_tms_ocr') }}" name="kw_tms_ocr" placeholder="tms OCR ...">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>tms OCR (variabel)</label>
+                                        <input type="text" class="form-control" value="{{ old('kw_tms_ocr_variable') }}" name="kw_tms_ocr_variable" placeholder="tms OCR variabel ...">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>tms GFR</label>
-                                        <input type="number" class="form-control" id="kw_tms_gfr" onchange="change()" value="{{ old('kw_tms_gfr') }}" name="kw_tms_gfr" placeholder="tms OCR ...">
-                                        SI
+                                        <input type="number" step="0.0001" class="form-control" id="kw_tms_gfr" onchange="change()" value="{{ old('kw_tms_gfr') }}" name="kw_tms_gfr" placeholder="tms GFR ...">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>tms GFR (variabel)</label>
+                                        <input type="text" class="form-control" value="{{ old('kw_tms_gfr_variable') }}" name="kw_tms_gfr_variable" placeholder="tms GFR variabel ...">
                                     </div>
                                 </div>
                             </div>
@@ -297,28 +309,28 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>1.5 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_r_satu_lima') }}" name="kw_fasa_r_satu_lima" placeholder="1.5 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_r_satu_lima') }}" name="kw_fasa_r_satu_lima" placeholder="1.5 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>2 x Is</label>
-                                        <input type="number" class="form-control" id="kw_fasa_r_dua" onchange="change()" value="{{ old('kw_fasa_r_dua') }}" name="kw_fasa_r_dua" placeholder="2 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" id="kw_fasa_r_dua" onchange="change()" value="{{ old('kw_fasa_r_dua') }}" name="kw_fasa_r_dua" placeholder="2 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>3 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_r_tiga') }}" name="kw_fasa_r_tiga" placeholder="3 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_r_tiga') }}" name="kw_fasa_r_tiga" placeholder="3 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>4 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_r_empat') }}" name="kw_fasa_r_empat" placeholder="4 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_r_empat') }}" name="kw_fasa_r_empat" placeholder="4 x Is ...">
                                     </div>
                                 </div>
                             </div>
@@ -330,28 +342,28 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>1.5 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_s_satu_lima') }}" name="kw_fasa_s_satu_lima" placeholder="1.5 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_s_satu_lima') }}" name="kw_fasa_s_satu_lima" placeholder="1.5 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>2 x Is</label>
-                                        <input type="number" class="form-control" id="kw_fasa_s_dua" onchange="change()" value="{{ old('kw_fasa_s_dua') }}" name="kw_fasa_s_dua" placeholder="2 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" id="kw_fasa_s_dua" onchange="change()" value="{{ old('kw_fasa_s_dua') }}" name="kw_fasa_s_dua" placeholder="2 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>3 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_s_tiga') }}" name="kw_fasa_s_tiga" placeholder="3 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_s_tiga') }}" name="kw_fasa_s_tiga" placeholder="3 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>4 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_s_empat') }}" name="kw_fasa_s_empat" placeholder="4 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_s_empat') }}" name="kw_fasa_s_empat" placeholder="4 x Is ...">
                                     </div>
                                 </div>
                             </div>
@@ -363,61 +375,61 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>1.5 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_t_satu_lima') }}" name="kw_fasa_t_satu_lima" placeholder="1.5 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_t_satu_lima') }}" name="kw_fasa_t_satu_lima" placeholder="1.5 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>2 x Is</label>
-                                        <input type="number" class="form-control" id="kw_fasa_t_dua" onchange="change()" value="{{ old('kw_fasa_t_dua') }}" name="kw_fasa_t_dua" placeholder="2 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" id="kw_fasa_t_dua" onchange="change()" value="{{ old('kw_fasa_t_dua') }}" name="kw_fasa_t_dua" placeholder="2 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>3 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_t_tiga') }}" name="kw_fasa_t_tiga" placeholder="3 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_t_tiga') }}" name="kw_fasa_t_tiga" placeholder="3 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>4 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_t_empat') }}" name="kw_fasa_t_empat" placeholder="4 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_t_empat') }}" name="kw_fasa_t_empat" placeholder="4 x Is ...">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h4>Fasa GFR</h4>
+                                    <h4>GFR</h4>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>1.5 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_gfr_satu_lima') }}" name="kw_fasa_gfr_satu_lima" placeholder="1.5 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_gfr_satu_lima') }}" name="kw_fasa_gfr_satu_lima" placeholder="1.5 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>2 x Is</label>
-                                        <input type="number" class="form-control" id="kw_fasa_gfr_dua" onchange="change()" value="{{ old('kw_fasa_gfr_dua') }}" name="kw_fasa_gfr_dua" placeholder="2 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" id="kw_fasa_gfr_dua" onchange="change()" value="{{ old('kw_fasa_gfr_dua') }}" name="kw_fasa_gfr_dua" placeholder="2 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>3 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_gfr_tiga') }}" name="kw_fasa_gfr_tiga" placeholder="3 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_gfr_tiga') }}" name="kw_fasa_gfr_tiga" placeholder="3 x Is ...">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>4 x Is</label>
-                                        <input type="number" class="form-control" value="{{ old('kw_fasa_gfr_empat') }}" name="kw_fasa_gfr_empat" placeholder="4 x Is ...">
+                                        <input type="number" step="0.0001" class="form-control" value="{{ old('kw_fasa_gfr_empat') }}" name="kw_fasa_gfr_empat" placeholder="4 x Is ...">
                                     </div>
                                 </div>
                             </div>
@@ -440,7 +452,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_setting_ihs_satu') }}" name="wks_fasa_r_setting_ihs_satu" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_setting_ihs_satu') }}" name="wks_fasa_r_setting_ihs_satu" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -448,7 +460,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_setting_ihs_satu') }}" name="wks_fasa_s_setting_ihs_satu" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_setting_ihs_satu') }}" name="wks_fasa_s_setting_ihs_satu" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -456,15 +468,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_setting_ihs_satu') }}" name="wks_fasa_t_setting_ihs_satu" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_setting_ihs_satu') }}" name="wks_fasa_t_setting_ihs_satu" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_setting_ihs_satu') }}" name="wks_fasa_gfr_setting_ihs_satu" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_setting_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_setting_ihs_satu') }}" name="wks_fasa_gfr_setting_ihs_satu" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -477,7 +489,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_arus_uji_ihs_satu') }}" name="wks_fasa_r_arus_uji_ihs_satu" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_arus_uji_ihs_satu') }}" name="wks_fasa_r_arus_uji_ihs_satu" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -485,7 +497,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_arus_uji_ihs_satu') }}" name="wks_fasa_s_arus_uji_ihs_satu" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_arus_uji_ihs_satu') }}" name="wks_fasa_s_arus_uji_ihs_satu" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -493,15 +505,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_arus_uji_ihs_satu') }}" name="wks_fasa_t_arus_uji_ihs_satu" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_arus_uji_ihs_satu') }}" name="wks_fasa_t_arus_uji_ihs_satu" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_arus_uji_ihs_satu') }}" name="wks_fasa_gfr_arus_uji_ihs_satu" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_arus_uji_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_arus_uji_ihs_satu') }}" name="wks_fasa_gfr_arus_uji_ihs_satu" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -514,7 +526,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_waktu_kerja_ihs_satu') }}" name="wks_fasa_r_waktu_kerja_ihs_satu" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_r_waktu_kerja_ihs_satu') }}" name="wks_fasa_r_waktu_kerja_ihs_satu" placeholder="Fasa R ...">
                                         sekon
                                     </div>
                                 </div>
@@ -522,7 +534,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_waktu_kerja_ihs_satu') }}" name="wks_fasa_s_waktu_kerja_ihs_satu" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_s_waktu_kerja_ihs_satu') }}" name="wks_fasa_s_waktu_kerja_ihs_satu" placeholder="Fasa S ...">
                                         sekon
                                     </div>
                                 </div>
@@ -530,15 +542,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_waktu_kerja_ihs_satu') }}" name="wks_fasa_t_waktu_kerja_ihs_satu" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_t_waktu_kerja_ihs_satu') }}" name="wks_fasa_t_waktu_kerja_ihs_satu" placeholder="Fasa T ...">
                                         sekon
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_waktu_kerja_ihs_satu') }}" name="wks_fasa_gfr_waktu_kerja_ihs_satu" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_waktu_kerja_ihs_satu" onchange="change()" value="{{ old('wks_fasa_gfr_waktu_kerja_ihs_satu') }}" name="wks_fasa_gfr_waktu_kerja_ihs_satu" placeholder="GFR ...">
                                         sekon
                                     </div>
                                 </div>
@@ -551,7 +563,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_setting_ihs_dua') }}" name="wks_fasa_r_setting_ihs_dua" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_setting_ihs_dua') }}" name="wks_fasa_r_setting_ihs_dua" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -559,7 +571,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_setting_ihs_dua') }}" name="wks_fasa_s_setting_ihs_dua" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_setting_ihs_dua') }}" name="wks_fasa_s_setting_ihs_dua" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -567,15 +579,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_setting_ihs_dua') }}" name="wks_fasa_t_setting_ihs_dua" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_setting_ihs_dua') }}" name="wks_fasa_t_setting_ihs_dua" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_setting_ihs_dua') }}" name="wks_fasa_gfr_setting_ihs_dua" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_setting_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_setting_ihs_dua') }}" name="wks_fasa_gfr_setting_ihs_dua" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -588,7 +600,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_arus_uji_ihs_dua') }}" name="wks_fasa_r_arus_uji_ihs_dua" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_arus_uji_ihs_dua') }}" name="wks_fasa_r_arus_uji_ihs_dua" placeholder="Fasa R ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -596,7 +608,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_arus_uji_ihs_dua') }}" name="wks_fasa_s_arus_uji_ihs_dua" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_arus_uji_ihs_dua') }}" name="wks_fasa_s_arus_uji_ihs_dua" placeholder="Fasa S ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -604,15 +616,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_arus_uji_ihs_dua') }}" name="wks_fasa_t_arus_uji_ihs_dua" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_arus_uji_ihs_dua') }}" name="wks_fasa_t_arus_uji_ihs_dua" placeholder="Fasa T ...">
                                         Ampere
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_arus_uji_ihs_dua') }}" name="wks_fasa_gfr_arus_uji_ihs_dua" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_arus_uji_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_arus_uji_ihs_dua') }}" name="wks_fasa_gfr_arus_uji_ihs_dua" placeholder="GFR ...">
                                         Ampere
                                     </div>
                                 </div>
@@ -625,7 +637,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa R</label>
-                                        <input type="number" class="form-control" id="wks_fasa_r_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_waktu_kerja_ihs_dua') }}" name="wks_fasa_r_waktu_kerja_ihs_dua" placeholder="Fasa R ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_r_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_r_waktu_kerja_ihs_dua') }}" name="wks_fasa_r_waktu_kerja_ihs_dua" placeholder="Fasa R ...">
                                         sekon
                                     </div>
                                 </div>
@@ -633,7 +645,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa S</label>
-                                        <input type="number" class="form-control" id="wks_fasa_s_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_waktu_kerja_ihs_dua') }}" name="wks_fasa_s_waktu_kerja_ihs_dua" placeholder="Fasa S ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_s_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_s_waktu_kerja_ihs_dua') }}" name="wks_fasa_s_waktu_kerja_ihs_dua" placeholder="Fasa S ...">
                                         sekon
                                     </div>
                                 </div>
@@ -641,15 +653,15 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Fasa T</label>
-                                        <input type="number" class="form-control" id="wks_fasa_t_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_waktu_kerja_ihs_dua') }}" name="wks_fasa_t_waktu_kerja_ihs_dua" placeholder="Fasa T ...">
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_t_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_t_waktu_kerja_ihs_dua') }}" name="wks_fasa_t_waktu_kerja_ihs_dua" placeholder="Fasa T ...">
                                         sekon
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Fasa GFR</label>
-                                        <input type="number" class="form-control" id="wks_fasa_gfr_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_waktu_kerja_ihs_dua') }}" name="wks_fasa_gfr_waktu_kerja_ihs_dua" placeholder="Fasa GFR ...">
+                                        <label>GFR</label>
+                                        <input type="number" step="0.0001" class="form-control" id="wks_fasa_gfr_waktu_kerja_ihs_dua" onchange="change()" value="{{ old('wks_fasa_gfr_waktu_kerja_ihs_dua') }}" name="wks_fasa_gfr_waktu_kerja_ihs_dua" placeholder="GFR ...">
                                         sekon
                                     </div>
                                 </div>
@@ -676,7 +688,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>In</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_posisi_in" readonly value="{{ old('sar_fasa_r_posisi_in') }}" name="sar_fasa_r_posisi_in" placeholder="In ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_posisi_in" readonly value="{{ old('sar_fasa_r_posisi_in') }}" name="sar_fasa_r_posisi_in" placeholder="In ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -684,7 +696,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Is</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_posisi_is" readonly value="{{ old('sar_fasa_r_posisi_is') }}" name="sar_fasa_r_posisi_is" placeholder="Is ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_posisi_is" readonly value="{{ old('sar_fasa_r_posisi_is') }}" name="sar_fasa_r_posisi_is" placeholder="Is ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -692,14 +704,14 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>tms</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_posisi_tms" readonly value="{{ old('sar_fasa_r_posisi_tms') }}" name="sar_fasa_r_posisi_tms" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_posisi_tms" readonly value="{{ old('sar_fasa_r_posisi_tms') }}" name="sar_fasa_r_posisi_tms" placeholder="tms ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_posisi_ihs_satu" readonly value="{{ old('sar_fasa_r_posisi_ihs_satu') }}" name="sar_fasa_r_posisi_ihs_satu" placeholder="IHS-1 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_posisi_ihs_satu" readonly value="{{ old('sar_fasa_r_posisi_ihs_satu') }}" name="sar_fasa_r_posisi_ihs_satu" placeholder="IHS-1 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -707,7 +719,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_posisi_ihs_dua" readonly value="{{ old('sar_fasa_r_posisi_ihs_dua') }}" name="sar_fasa_r_posisi_ihs_dua" placeholder="IHS-2 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_posisi_ihs_dua" readonly value="{{ old('sar_fasa_r_posisi_ihs_dua') }}" name="sar_fasa_r_posisi_ihs_dua" placeholder="IHS-2 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -723,7 +735,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kerja</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_kerja" readonly value="{{ old('sar_fasa_r_hasil_kerja') }}" name="sar_fasa_r_hasil_kerja" placeholder="I Kerja ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_kerja" readonly value="{{ old('sar_fasa_r_hasil_kerja') }}" name="sar_fasa_r_hasil_kerja" placeholder="I Kerja ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -731,7 +743,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kembali</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_kembali" readonly value="{{ old('sar_fasa_r_hasil_kembali') }}" name="sar_fasa_r_hasil_kembali" placeholder="I Kembali ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_kembali" readonly value="{{ old('sar_fasa_r_hasil_kembali') }}" name="sar_fasa_r_hasil_kembali" placeholder="I Kembali ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -739,7 +751,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>t</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_t" readonly value="{{ old('sar_fasa_r_hasil_t') }}" name="sar_fasa_r_hasil_t" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_t" readonly value="{{ old('sar_fasa_r_hasil_t') }}" name="sar_fasa_r_hasil_t" placeholder="tms ...">
                                                 detik
                                             </div>
                                         </div>
@@ -747,7 +759,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_r_hasil_ihs_satu_a') }}" name="sar_fasa_r_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_r_hasil_ihs_satu_a') }}" name="sar_fasa_r_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -755,7 +767,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_r_hasil_ihs_satu_det') }}" name="sar_fasa_r_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_r_hasil_ihs_satu_det') }}" name="sar_fasa_r_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -763,7 +775,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_r_hasil_ihs_dua_a') }}" name="sar_fasa_r_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_r_hasil_ihs_dua_a') }}" name="sar_fasa_r_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -771,7 +783,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_r_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_r_hasil_ihs_dua_det') }}" name="sar_fasa_r_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_r_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_r_hasil_ihs_dua_det') }}" name="sar_fasa_r_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -789,7 +801,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>In</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_posisi_in" readonly value="{{ old('sar_fasa_s_posisi_in') }}" name="sar_fasa_s_posisi_in" placeholder="In ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_posisi_in" readonly value="{{ old('sar_fasa_s_posisi_in') }}" name="sar_fasa_s_posisi_in" placeholder="In ...">
                                                 Ampere0
                                             </div>
                                         </div>
@@ -797,7 +809,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Is</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_posisi_is" readonly value="{{ old('sar_fasa_s_posisi_is') }}" name="sar_fasa_s_posisi_is" placeholder="Is ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_posisi_is" readonly value="{{ old('sar_fasa_s_posisi_is') }}" name="sar_fasa_s_posisi_is" placeholder="Is ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -805,14 +817,14 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>tms</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_posisi_tms" readonly value="{{ old('sar_fasa_s_posisi_tms') }}" name="sar_fasa_s_posisi_tms" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_posisi_tms" readonly value="{{ old('sar_fasa_s_posisi_tms') }}" name="sar_fasa_s_posisi_tms" placeholder="tms ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_posisi_ihs_satu" readonly value="{{ old('sar_fasa_s_posisi_ihs_satu') }}" name="sar_fasa_s_posisi_ihs_satu" placeholder="IHS-1 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_posisi_ihs_satu" readonly value="{{ old('sar_fasa_s_posisi_ihs_satu') }}" name="sar_fasa_s_posisi_ihs_satu" placeholder="IHS-1 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -820,7 +832,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_posisi_ihs_dua" readonly value="{{ old('sar_fasa_s_posisi_ihs_dua') }}" name="sar_fasa_s_posisi_ihs_dua" placeholder="IHS-2 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_posisi_ihs_dua" readonly value="{{ old('sar_fasa_s_posisi_ihs_dua') }}" name="sar_fasa_s_posisi_ihs_dua" placeholder="IHS-2 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -836,7 +848,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kerja</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_kerja" readonly value="{{ old('sar_fasa_s_hasil_kerja') }}" name="sar_fasa_s_hasil_kerja" placeholder="I Kerja ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_kerja" readonly value="{{ old('sar_fasa_s_hasil_kerja') }}" name="sar_fasa_s_hasil_kerja" placeholder="I Kerja ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -844,7 +856,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kembali</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_kembali" readonly value="{{ old('sar_fasa_s_hasil_kembali') }}" name="sar_fasa_s_hasil_kembali" placeholder="I Kembali ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_kembali" readonly value="{{ old('sar_fasa_s_hasil_kembali') }}" name="sar_fasa_s_hasil_kembali" placeholder="I Kembali ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -852,7 +864,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>t</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_t" readonly value="{{ old('sar_fasa_s_hasil_t') }}" name="sar_fasa_s_hasil_t" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_t" readonly value="{{ old('sar_fasa_s_hasil_t') }}" name="sar_fasa_s_hasil_t" placeholder="tms ...">
                                                 detik
                                             </div>
                                         </div>
@@ -860,7 +872,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_s_hasil_ihs_satu_a') }}" name="sar_fasa_s_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_s_hasil_ihs_satu_a') }}" name="sar_fasa_s_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -868,7 +880,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_s_hasil_ihs_satu_det') }}" name="sar_fasa_s_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_s_hasil_ihs_satu_det') }}" name="sar_fasa_s_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -876,7 +888,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_s_hasil_ihs_dua_a') }}" name="sar_fasa_s_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_s_hasil_ihs_dua_a') }}" name="sar_fasa_s_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -884,7 +896,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_s_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_s_hasil_ihs_dua_det') }}" name="sar_fasa_s_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_s_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_s_hasil_ihs_dua_det') }}" name="sar_fasa_s_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -902,7 +914,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>In</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_posisi_in" readonly value="{{ old('sar_fasa_t_posisi_in') }}" name="sar_fasa_t_posisi_in" placeholder="In ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_posisi_in" readonly value="{{ old('sar_fasa_t_posisi_in') }}" name="sar_fasa_t_posisi_in" placeholder="In ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -910,7 +922,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Is</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_posisi_is" readonly value="{{ old('sar_fasa_t_posisi_is') }}" name="sar_fasa_t_posisi_is" placeholder="Is ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_posisi_is" readonly value="{{ old('sar_fasa_t_posisi_is') }}" name="sar_fasa_t_posisi_is" placeholder="Is ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -918,14 +930,14 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>tms</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_posisi_tms" readonly value="{{ old('sar_fasa_t_posisi_tms') }}" name="sar_fasa_t_posisi_tms" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_posisi_tms" readonly value="{{ old('sar_fasa_t_posisi_tms') }}" name="sar_fasa_t_posisi_tms" placeholder="tms ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_posisi_ihs_satu" readonly value="{{ old('sar_fasa_t_posisi_ihs_satu') }}" name="sar_fasa_t_posisi_ihs_satu" placeholder="IHS-1 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_posisi_ihs_satu" readonly value="{{ old('sar_fasa_t_posisi_ihs_satu') }}" name="sar_fasa_t_posisi_ihs_satu" placeholder="IHS-1 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -933,7 +945,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_posisi_ihs_dua" readonly value="{{ old('sar_fasa_t_posisi_ihs_dua') }}" name="sar_fasa_t_posisi_ihs_dua" placeholder="IHS-2 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_posisi_ihs_dua" readonly value="{{ old('sar_fasa_t_posisi_ihs_dua') }}" name="sar_fasa_t_posisi_ihs_dua" placeholder="IHS-2 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -949,7 +961,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kerja</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_kerja" readonly value="{{ old('sar_fasa_t_hasil_kerja') }}" name="sar_fasa_t_hasil_kerja" placeholder="I Kerja ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_kerja" readonly value="{{ old('sar_fasa_t_hasil_kerja') }}" name="sar_fasa_t_hasil_kerja" placeholder="I Kerja ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -957,7 +969,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kembali</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_kembali" readonly value="{{ old('sar_fasa_t_hasil_kembali') }}" name="sar_fasa_t_hasil_kembali" placeholder="I Kembali ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_kembali" readonly value="{{ old('sar_fasa_t_hasil_kembali') }}" name="sar_fasa_t_hasil_kembali" placeholder="I Kembali ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -965,7 +977,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>t</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_t" readonly value="{{ old('sar_fasa_t_hasil_t') }}" name="sar_fasa_t_hasil_t" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_t" readonly value="{{ old('sar_fasa_t_hasil_t') }}" name="sar_fasa_t_hasil_t" placeholder="tms ...">
                                                 detik
                                             </div>
                                         </div>
@@ -973,7 +985,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_t_hasil_ihs_satu_a') }}" name="sar_fasa_t_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_t_hasil_ihs_satu_a') }}" name="sar_fasa_t_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -981,7 +993,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_t_hasil_ihs_satu_det') }}" name="sar_fasa_t_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_t_hasil_ihs_satu_det') }}" name="sar_fasa_t_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -989,7 +1001,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_t_hasil_ihs_dua_a') }}" name="sar_fasa_t_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_t_hasil_ihs_dua_a') }}" name="sar_fasa_t_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -997,7 +1009,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_t_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_t_hasil_ihs_dua_det') }}" name="sar_fasa_t_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_t_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_t_hasil_ihs_dua_det') }}" name="sar_fasa_t_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -1009,13 +1021,13 @@
                                     <h4>Posisi Setting</h4>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h4>Fasa GFR</h4>
+                                            <h4>GFR</h4>
                                         </div>
                                         <div class="col-sm-2">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>In</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_posisi_in" readonly value="{{ old('sar_fasa_gfr_posisi_in') }}" name="sar_fasa_gfr_posisi_in" placeholder="In ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_posisi_in" readonly value="{{ old('sar_fasa_gfr_posisi_in') }}" name="sar_fasa_gfr_posisi_in" placeholder="In ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1023,7 +1035,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Is</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_posisi_is" readonly value="{{ old('sar_fasa_gfr_posisi_is') }}" name="sar_fasa_gfr_posisi_is" placeholder="Is ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_posisi_is" readonly value="{{ old('sar_fasa_gfr_posisi_is') }}" name="sar_fasa_gfr_posisi_is" placeholder="Is ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1031,14 +1043,14 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>tms</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_posisi_tms" readonly value="{{ old('sar_fasa_gfr_posisi_tms') }}" name="sar_fasa_gfr_posisi_tms" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_posisi_tms" readonly value="{{ old('sar_fasa_gfr_posisi_tms') }}" name="sar_fasa_gfr_posisi_tms" placeholder="tms ...">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_posisi_ihs_satu" readonly value="{{ old('sar_fasa_gfr_posisi_ihs_satu') }}" name="sar_fasa_gfr_posisi_ihs_satu" placeholder="IHS-1 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_posisi_ihs_satu" readonly value="{{ old('sar_fasa_gfr_posisi_ihs_satu') }}" name="sar_fasa_gfr_posisi_ihs_satu" placeholder="IHS-1 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1046,7 +1058,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_posisi_ihs_dua" readonly value="{{ old('sar_fasa_gfr_posisi_ihs_dua') }}" name="sar_fasa_gfr_posisi_ihs_dua" placeholder="IHS-2 ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_posisi_ihs_dua" readonly value="{{ old('sar_fasa_gfr_posisi_ihs_dua') }}" name="sar_fasa_gfr_posisi_ihs_dua" placeholder="IHS-2 ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1056,13 +1068,13 @@
                                     <h4>Hasil Test Setting</h4>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h4>Fasa GFR</h4>
+                                            <h4>GFR</h4>
                                         </div>
                                         <div class="col-sm-2">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kerja</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_kerja" readonly value="{{ old('sar_fasa_gfr_hasil_kerja') }}" name="sar_fasa_gfr_hasil_kerja" placeholder="I Kerja ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_kerja" readonly value="{{ old('sar_fasa_gfr_hasil_kerja') }}" name="sar_fasa_gfr_hasil_kerja" placeholder="I Kerja ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1070,7 +1082,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>I Kembali</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_kembali" readonly value="{{ old('sar_fasa_gfr_hasil_kembali') }}" name="sar_fasa_gfr_hasil_kembali" placeholder="I Kembali ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_kembali" readonly value="{{ old('sar_fasa_gfr_hasil_kembali') }}" name="sar_fasa_gfr_hasil_kembali" placeholder="I Kembali ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1078,7 +1090,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>t</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_t" readonly value="{{ old('sar_fasa_gfr_hasil_t') }}" name="sar_fasa_gfr_hasil_t" placeholder="tms ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_t" readonly value="{{ old('sar_fasa_gfr_hasil_t') }}" name="sar_fasa_gfr_hasil_t" placeholder="tms ...">
                                                 detik
                                             </div>
                                         </div>
@@ -1086,7 +1098,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_satu_a') }}" name="sar_fasa_gfr_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_ihs_satu_a" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_satu_a') }}" name="sar_fasa_gfr_hasil_ihs_satu_a" placeholder="IHS-1 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1094,7 +1106,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-1 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_satu_det') }}" name="sar_fasa_gfr_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_ihs_satu_det" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_satu_det') }}" name="sar_fasa_gfr_hasil_ihs_satu_det" placeholder="IHS-1 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -1102,7 +1114,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (Ampere)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_dua_a') }}" name="sar_fasa_gfr_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_ihs_dua_a" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_dua_a') }}" name="sar_fasa_gfr_hasil_ihs_dua_a" placeholder="IHS-2 (Ampere) ...">
                                                 Ampere
                                             </div>
                                         </div>
@@ -1110,7 +1122,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>IHS-2 (detik)</label>
-                                                <input type="number" class="form-control" id="sar_fasa_gfr_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_dua_det') }}" name="sar_fasa_gfr_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
+                                                <input type="number" step="0.0001" class="form-control" id="sar_fasa_gfr_hasil_ihs_dua_det" readonly value="{{ old('sar_fasa_gfr_hasil_ihs_dua_det') }}" name="sar_fasa_gfr_hasil_ihs_dua_det" placeholder="IHS-2 (detik) ...">
                                                 detik
                                             </div>
                                         </div>
@@ -1208,7 +1220,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h4>Fasa GFR</h4>
+                                    <h4>GFR</h4>
                                 </div>
                                 <div class="col-sm-4">
                                     <!-- text input -->
@@ -1370,6 +1382,10 @@
     document.getElementById("sar_fasa_s_hasil_ihs_dua_det").value = document.getElementById("wks_fasa_s_waktu_kerja_ihs_dua").value;
     document.getElementById("sar_fasa_t_hasil_ihs_dua_det").value = document.getElementById("wks_fasa_t_waktu_kerja_ihs_dua").value;
     document.getElementById("sar_fasa_gfr_hasil_ihs_dua_det").value = document.getElementById("wks_fasa_gfr_waktu_kerja_ihs_dua").value;
+    document.getElementById("akmk_fasa_r_ratio").value = (document.getElementById("akmk_fasa_r_arus_kembali").value / document.getElementById("akmk_fasa_r_arus_kerja").value).toFixed(4);
+    document.getElementById("akmk_fasa_s_ratio").value = (document.getElementById("akmk_fasa_s_arus_kembali").value / document.getElementById("akmk_fasa_s_arus_kerja").value).toFixed(4);
+    document.getElementById("akmk_fasa_t_ratio").value = (document.getElementById("akmk_fasa_t_arus_kembali").value / document.getElementById("akmk_fasa_t_arus_kerja").value).toFixed(4);
+    document.getElementById("akmk_fasa_gfr_ratio").value = (document.getElementById("akmk_fasa_gfr_arus_kembali").value / document.getElementById("akmk_fasa_gfr_arus_kerja").value).toFixed(4);
   }
 </script>
 @stop

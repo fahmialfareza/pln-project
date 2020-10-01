@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Lihat Data')
+@section('title', 'Lihat Data (Trafo)')
 
 @section('content_header')
-<h1>Lihat Data</h1> <br>
+<h1>Lihat Data (Trafo)</h1> <br>
 @if (session('status'))
 <div class="alert alert-success alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -18,7 +18,7 @@
     <div class="col-12">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Lihat Data</h3>
+                <h3 class="card-title">Lihat Data (Trafo)</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -32,7 +32,7 @@
                             <table id="data" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="data_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="data" rowspan="1" colspan="1" aria-sort="ascending">ID</th>
+                                        <th class="sorting_desc" tabindex="0" aria-controls="data" rowspan="1" colspan="1" aria-sort="descending">ID</th>
                                         <th class="sorting" tabindex="0" aria-controls="data" rowspan="1" colspan="1">Merk</th>
                                         <th class="sorting" tabindex="0" aria-controls="data" rowspan="1" colspan="1">Type</th>
                                         <th class="sorting" tabindex="0" aria-controls="data" rowspan="1" colspan="1">No. Serie</th>
@@ -42,25 +42,56 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $dat)
+                                    @foreach ($trafo as $dat)
                                     <tr role="row" class="odd">
-                                        <td tabindex="0" class="sorting_1">DOC-ID-{{ $dat->id }}</td>
-                                        <td>{{ $dat->hu_merk }}</td>
-                                        <td>{{ $dat->hu_type }}</td>
-                                        <td>{{ $dat->hu_no_serie }}</td>
-                                        <td>
-                                            @if ($dat->hu_tanggal)
-                                            {{ Carbon\Carbon::createFromFormat('Y-m-d', $dat->hu_tanggal)->translatedFormat('l, d F Y') }}
+                                        <td tabindex="0" class="sorting_1">
+                                            @if ($dat->id)
+                                                DOCT-ID-{{ $dat->id }}
                                             @else
+                                                -
                                             @endif
                                         </td>
-                                        <td>{{ $dat->hu_lokasi }}</td>
                                         <td>
-                                            <a target="_blank" href="{{ route('data.print', $dat->id) }}" class="btn btn-primary"><i class="fas fa-print"></i></a>
+                                            @if ($dat->hu_merk)
+                                                {{ $dat->hu_merk }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($dat->hu_type)
+                                                {{ $dat->hu_type }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($dat->hu_no_serie)
+                                                {{ $dat->hu_no_serie }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($dat->hu_tanggal)
+                                                {{ Carbon\Carbon::createFromFormat('Y-m-d', $dat->hu_tanggal)->translatedFormat('l, d F Y') }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($dat->hu_lokasi)
+                                                {{ $dat->hu_lokasi }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a target="_blank" href="{{ route('data.trafo.print', $dat->id) }}" class="btn btn-primary"><i class="fas fa-print"></i></a>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-show-{{ $dat->id }}">
                                                 Lihat
                                             </button>
-                                            <a href="{{ route('data.edit', $dat->id) }}" class="btn btn-primary">
+                                            <a href="{{ route('data.trafo.edit', $dat->id) }}" class="btn btn-primary">
                                                 Edit
                                             </a>
                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{ $dat->id }}">
@@ -73,7 +104,7 @@
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">DOC-ID-{{ $dat->id }}</h4>
+                                                            <h4 class="modal-title">DOCT-ID-{{ $dat->id }}</h4>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">×</span>
                                                         </div>
@@ -91,50 +122,105 @@
                                                                                         <!-- text input -->
                                                                                         <div class="form-group">
                                                                                             <label>Merk</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_merk }}" name="hu_merk" placeholder="Merk ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                              @if ($dat->hu_merk)
+                                                                                                  value="{{ $dat->hu_merk }}"
+                                                                                              @else
+                                                                                                  value="-"
+                                                                                              @endif
+                                                                                              name="hu_merk" placeholder="Merk ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Type</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_type }}" name="hu_type" placeholder="Type ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_type)
+                                                                                                value="{{ $dat->hu_type }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_type" placeholder="Type ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>No. Serie</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_no_serie }}" name="hu_no_serie" placeholder="No. Serie ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_no_serie)
+                                                                                                value="{{ $dat->hu_no_serie }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_no_serie" placeholder="No. Serie ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Rating</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_rating }}" name="hu_rating" placeholder="Rating ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_rating)
+                                                                                                value="{{ $dat->hu_rating }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_rating" placeholder="Rating ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Karakteristik</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_karakteristik }}" name="hu_karakteristik" placeholder="Karakteristik ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_karakteristik)
+                                                                                                value="{{ $dat->hu_karakteristik }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_karakteristik" placeholder="Karakteristik ..." readonly>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-sm-6">
                                                                                         <div class="form-group">
                                                                                             <label>Tanggal</label>
-                                                                                            <input type="text" class="form-control" @if ($dat->hu_tanggal)
-                                                                                            value="{{ Carbon\Carbon::createFromFormat('Y-m-d', $dat->hu_tanggal)->translatedFormat('l, d F Y') }}"
-                                                                                            @else
-                                                                                            value=""
-                                                                                            @endif
-                                                                                            name="hu_tanggal" placeholder="Tanggal ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                              @if ($dat->hu_tanggal)
+                                                                                                value="{{ Carbon\Carbon::createFromFormat('Y-m-d', $dat->hu_tanggal)->translatedFormat('l, d F Y') }}"
+                                                                                              @else
+                                                                                                value="-"
+                                                                                              @endif
+                                                                                              name="hu_tanggal" placeholder="Tanggal ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Lokasi</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_lokasi }}" name="hu_lokasi" placeholder="Lokasi ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_lokasi)
+                                                                                                value="{{ $dat->hu_lokasi }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_lokasi" placeholder="Lokasi ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Bay</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_bay }}" name="hu_bay" placeholder="Bay ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_bay)
+                                                                                                value="{{ $dat->hu_bay }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_bay" placeholder="Bay ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Ratio CT</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_ratio_ct }}" name="hu_ratio_ct" placeholder="Ratio CT ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_ratio_ct)
+                                                                                                value="{{ $dat->hu_ratio_ct }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_ratio_ct" placeholder="Ratio CT ..." readonly>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Alat Uji</label>
-                                                                                            <input type="text" class="form-control" value="{{ $dat->hu_alat_uji }}" name="hu_alat_uji" placeholder="Alat Uji ..." readonly>
+                                                                                            <input type="text" class="form-control"
+                                                                                            @if ($dat->hu_alat_uji)
+                                                                                                value="{{ $dat->hu_alat_uji }}"
+                                                                                            @else
+                                                                                                value="-"
+                                                                                            @endif
+                                                                                             name="hu_alat_uji" placeholder="Alat Uji ..." readonly>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -348,20 +434,32 @@
                                                                             </div>
                                                                             <div class="card-body">
                                                                                 <div class="row">
-                                                                                    <div class="col-sm-6">
+                                                                                    <div class="col-sm-3">
                                                                                         <!-- text input -->
                                                                                         <div class="form-group">
                                                                                             <label>tms OCR</label>
                                                                                             <input type="number" class="form-control" value="{{ $dat->kw_tms_ocr }}" name="kw_tms_ocr" placeholder="tms OCR ..." readonly>
-                                                                                            SI
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-sm-6">
+                                                                                    <div class="col-sm-3">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>tms OCR (variabel)</label>
+                                                                                            <input type="text" class="form-control" value="{{ $dat->kw_tms_ocr_variable ? $dat->kw_tms_ocr_variable : '-' }}" name="kw_tms_ocr_variable" placeholder="tms OCR variabel ..." readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-sm-3">
                                                                                         <!-- text input -->
                                                                                         <div class="form-group">
                                                                                             <label>tms GFR</label>
                                                                                             <input type="number" class="form-control" value="{{ $dat->kw_tms_gfr }}" name="kw_tms_gfr" placeholder="tms OCR ..." readonly>
-                                                                                            SI
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-sm-3">
+                                                                                        <!-- text input -->
+                                                                                        <div class="form-group">
+                                                                                            <label>tms GFR (variabel)</label>
+                                                                                            <input type="text" class="form-control" value="{{ $dat->kw_tms_gfr_variable ? $dat->kw_tms_gfr_variable : '-' }}" name="kw_tms_gfr_variable" placeholder="tms GFR variabel ..." readonly>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1369,7 +1467,7 @@
                                                                             <div class="card-body">
                                                                                 <div class="form-group">
                                                                                     <label>Catatan</label>
-                                                                                    <textarea class="form-control" rows="5" name="catatan" readonly>{{ $dat->catatan }}</textarea>
+                                                                                    <textarea class="form-control" rows="5" name="catatan" readonly>{{ $dat->catatan ? $dat->catatan : '-'  }}</textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1384,27 +1482,27 @@
                                                                             <div class="card-body">
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 1</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_satu }}" name="pelaksana_satu" placeholder="Pelaksana 1 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_satu ? $dat->pelaksana_satu : '-' }}" name="pelaksana_satu" placeholder="Pelaksana 1 ..." readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 2</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_dua }}" name="pelaksana_dua" placeholder="Pelaksana 2 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_dua ? $dat->pelaksana_dua : '-' }}" name="pelaksana_dua" placeholder="Pelaksana 2 ..." readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 3</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_tiga }}" name="pelaksana_tiga" placeholder="Pelaksana 3 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_tiga ? $dat->pelaksana_tiga : '-' }}" name="pelaksana_tiga" placeholder="Pelaksana 3 ..." readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 4</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_empat }}" name="pelaksana_empat" placeholder="Pelaksana 4 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_empat ? $dat->pelaksana_empat : '-' }}" name="pelaksana_empat" placeholder="Pelaksana 4 ..." readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 5</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_lima }}" name="pelaksana_lima" placeholder="Pelaksana 5 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_lima ? $dat->pelaksana_lima : '-' }}" name="pelaksana_lima" placeholder="Pelaksana 5 ..." readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label>Pelaksana 6</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_enam }}" name="pelaksana_enam" placeholder="Pelaksana 6 ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->pelaksana_enam ? $dat->pelaksana_enam : '-' }}" name="pelaksana_enam" placeholder="Pelaksana 6 ..." readonly>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1417,7 +1515,7 @@
                                                                             <div class="card-body">
                                                                                 <div class="form-group">
                                                                                     <label>Supervisi</label>
-                                                                                    <input type="text" class="form-control" value="{{ $dat->supervisi }}" name="supervisi" placeholder="Supervisi ..." readonly>
+                                                                                    <input type="text" class="form-control" value="{{ $dat->supervisi ? $dat->supervisi : '-' }}" name="supervisi" placeholder="Supervisi ..." readonly>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1427,7 +1525,7 @@
                                                         </div>
                                                         <div class="modal-footer justify-content-center">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            <a target="_blank" href="{{ route('data.print', $dat->id) }}" class="btn btn-primary"><i class="fas fa-print"></i></a>
+                                                            <a target="_blank" href="{{ route('data.trafo.print', $dat->id) }}" class="btn btn-primary"><i class="fas fa-print"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1446,7 +1544,7 @@
                                                         <div class="modal-body">
                                                             <p>Apakah kamu yakin mau hapus data ini?</p>
                                                         </div>
-                                                        <form role="form" method="POST" action="{{ route('data.destroy', $dat->id) }}">
+                                                        <form role="form" method="POST" action="{{ route('data.trafo.destroy', $dat->id) }}">
                                                             @csrf
                                                             {{ method_field('DELETE') }}
                                                             <div class="modal-footer justify-content-between">
